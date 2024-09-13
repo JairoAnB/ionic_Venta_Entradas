@@ -1,0 +1,7 @@
+{
+  "name": "venta_entradas",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
