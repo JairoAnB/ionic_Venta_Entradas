@@ -1,0 +1,73 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title class="ion-text-center">VENTAS</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <h1 class="ion-text-center texto">Por favor seleccione las siguientes opciones</h1>
+  <ion-list>
+    <ion-item>
+      <ion-select [(ngModel)]="funcion" label = "Seleccione la funcion"readonly>
+        <ion-select-option *ngFor="let funcion of funciones"> {{funcion}}</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-input label="Cantidad de entradas" readonly></ion-input>
+      <ion-input label=" " type="number" [(ngModel)]="entrada" min="1" max="10"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-select [(ngModel)]="sala" (ionChange)="seleccionarSala($event.detail.value)" label="Seleccione Sala" readonly>
+        <ion-select-option value="4DX">Sala 4DX</ion-select-option>
+        <ion-select-option value="3D">Sala 3D</ion-select-option>
+        <ion-select-option value="D-BOX">Sala D-BOX</ion-select-option>
+        <ion-select-option value="Normal">Sala 2D</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-input [(ngModel)]="fecha" label="Seleccione el dia y hora" readonly></ion-input>
+      <ion-button fill="clear" id="btn_calendar">
+        <ion-icon name="calendar"></ion-icon>
+      </ion-button>
+      <ion-popover trigger="btn_calendar" triggerAction="click">
+        <ng-template>
+          <ion-datetime locale="es-ES" [(ngModel)]="fecha" presentation="date"  [showDefaultButtons]="true"></ion-datetime>
+        </ng-template>
+      </ion-popover>
+    </ion-item>
+  </ion-list>
+  <h3 class="ion-text-center">Carrito de compras</h3>
+  <ion-list>
+    <ion-item>
+      <ion-label>Pelicula:</ion-label>
+      <ion-label>{{funcion}}</ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label>Tipo de sala:</ion-label>
+      <ion-label>{{sala}}</ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label>Cantidad de entradas:</ion-label>
+      <ion-label>{{entrada}}</ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label>Fecha seleccionada:</ion-label>
+      <ion-label>{{fecha}}</ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label>Precio sin descuento:</ion-label>
+      <ion-label>{{precio * entrada | currency:'CLP ': 'symbol':'0.0-0'}}</ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label>Precio con {{descuento}}% </ion-label>
+      <ion-label>{{precio * entrada - (precio*entrada*(descuento/100)) | currency:'CLP ': 'symbol':'0.0-0'}}</ion-label>
+    </ion-item>
+  </ion-list>
+  <ion-button class="entrada" expand="block" color="success" (click)="rechazarCompra()">Comprar entrada</ion-button>
+</ion-content>
+
+<ion-footer class="ion-text-center">
+  <ion-toolbar>
+    <ion-title color="warning">DUOC VENTA DE ENTRADAS APP</ion-title>
+  </ion-toolbar>
+</ion-footer>

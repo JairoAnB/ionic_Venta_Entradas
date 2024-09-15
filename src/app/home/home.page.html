@@ -1,20 +1,38 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>
-      Blank
+    <ion-title class="ion-text-center">
+      Venta de entradas
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+  <h1 class="ion-text-center">Por favor ingresa tus datos personales</h1>
+  <ion-list>
+    <ion-item>
+     <ion-input [(ngModel)]="nombre" label="Ingresa tu nombre" ></ion-input>
+    </ion-item>
+    <br>
+    <ion-item>
+      <ion-input [(ngModel)]="apellido" label="Ingresa tu apellido" ></ion-input>
+     </ion-item>
+     <br>
+     <ion-item>
+      <ion-input [(ngModel)]="correo" label="Ingresa tu correo" ></ion-input>
+     </ion-item>
+     <br>
+     <ion-item>
+      <ion-input [(ngModel)]="edad" label="Ingresa tu edad" (ionInput) = "verificacionEdad($event)" ></ion-input>
+     </ion-item>
+     <br>
+  </ion-list>
+  <br>
+  <br>
+  <ion-button expand="block" color="success" (click)="validar()">Validar datos</ion-button>
 </ion-content>
+<ion-footer class="ion-text-center">
+  <ion-toolbar>
+    <ion-title color= "warning">DUOC VENTA DE ENTRADAS APP</ion-title>
+  </ion-toolbar>
+</ion-footer>
