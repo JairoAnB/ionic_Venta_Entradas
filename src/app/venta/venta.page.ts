@@ -12,7 +12,19 @@ export class VentaPage implements OnInit {
 
   constructor(private alertController: AlertController, private descuentoService: ServiceDescuentoService, private toastController: ToastController) {
    }
-  funciones = ['El señor de los anillos', 'Harry Potter', 'Star Wars', 'Avengers', 'Rapidos y Furiosos', 'Matrix', 'El padrino', 'El rey leon', 'Titanic', 'El exorcista','Oppenheimer','Intensamente 2','Mi villano favorito 4','Deadpool & Wolverine'];
+  funciones = [
+    'Deadpool & Wolverine',
+    'Orgullo y Prejuicio',
+    'Deseando Amar',
+    'Expiación',
+    'There Will Be Blood',
+    'Las ventajas de ser invisible',
+    'El viaje de Chihiro',
+    'La Sirenita',
+    'La Cenicienta [Live Action]',
+    'Interstellar',
+    'Spider-Man: No Way Home'
+  ];
   venta!: number;
   funcion!: string;
   sala!: number;

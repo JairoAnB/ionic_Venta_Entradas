@@ -40,7 +40,7 @@ export class HomePage {
   async mostrarDatos() {
     const alert = await this.alertController.create({
       header: 'Ingresado satisfactoriamente',
-      message: `Bienvenido ${this.nombre}\nTienes un descuento por tu edad de: ${this.descuento}% `,
+      message: `Bienvenido ${this.nombre}, tienes un descuento por tu edad de un ${this.descuento}%`,
       buttons: ['Genial!']
     })
     await alert.present();
